@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:32:28 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/19 19:06:00 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/20 18:31:40 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int		set_info(const char *str_conv, t_info *info)
+/* This function sets the information for the conversions.
+** It start by giving default values. 
+** prec = -1 means no precision givin. 
+
+** Returns: (int) the step taken
+*/
+
+int		set_info(const char *str_conv, t_info *info, va_list ap)
 {
 	int	step;
 
 	step = 0;
 	info->dash = 0;
 	info->zero = 0;
-	info->star = 0;
 	info->prec = -1;
 	info->width = 0;
+	info->err = 0;
 	info->spec = '\0';
-	
-
 	step += set_flags(str_conv, info);
-	//printf("step after set_flags() = %d\n", step);
-	step += set_width(str_conv + step, info);
-	//printf("step after set_width() = %d\n", step);
-	step += set_prec(str_conv + step, info);
-	//printf("step after set_prec() = %d\n", step);
+	step += set_width(str_conv + step, info, ap);
+	if (info->err == 1)
+		return (-1);
+	step += set_prec(str_conv + step, info, ap);
+	if (info->err == 1)
+		return (-1);
 	step += set_spec(str_conv + step, info);
-	//printf("step after set_prec() = %d\n", step);
 	
 	/* Handle exceptions */
 	if (info->dash == 1)
@@ -44,14 +49,16 @@ int		set_info(const char *str_conv, t_info *info)
 	return (step);
 }
 
-/* This function sets the '-' and '0' flags */
+/* 
+** This function sets the '-' and '0' flags 
+** Returns: (int) the steps taken
+*/
+
 int		set_flags(const char *str_conv, t_info *info)
 {
 	int i;
 
-	//printf("\nEntered set_flags\n");
 	i = 0;
-	//printf("str_conv= %s\n", str_conv);
 	while (*(str_conv + i) == '-' || *(str_conv + i) == '0')
 	{
 		if (*(str_conv + i) == '-')
@@ -59,85 +66,79 @@ int		set_flags(const char *str_conv, t_info *info)
 		if (*(str_conv + i) == '0')
 			info->zero = 1;
 		i++;
-	}/*
-	printf("dash = %d\n", info->dash);
-	printf("zero = %d\n", info->zero);
-	printf("star = %d\n", info->star);
-	printf("prec = %d\n", info->prec);
-	printf("width = %d\n", info->width);
-	printf("spec = %c\n", info->spec);*/
+	}
 	return (i);
 }
 
-int		set_width(const char *str_conv, t_info *info)
+/* The function sets the field width.
+** It allocates memory and creates a string which contains the string
+** representation of an integer. After, ft_atoi is used to convert to integer.
+**
+** Returns: (int) the steps taken.
+*/
+
+int		set_width(const char *str_conv, t_info *info, va_list ap)
 {
 	int i;
 	char *width;
-
-	//printf("\nEntered set_width\n");
+	
 	i = 0;
-//	printf("str_conv= %s\n", str_conv);
-	while (*(str_conv + i) != '\0')
+	if (*(str_conv + i) == '*')
 	{
-		if (ft_isdigit(*(str_conv + i)) == 0)
-			break ;
-		i++;
+		info->width = va_arg(ap, int);
+		return (1);
 	}
+	while (ft_isdigit(*(str_conv + i)) > 0)
+		i++;
 	width = ft_substr(str_conv, 0, i);
 	if (width == NULL)
-		return (-1);
+		info->err = 1;
 	info->width = ft_atoi(width);
 	free(width);
-	/*
-	printf("dash = %d\n", info->dash);
-	printf("zero = %d\n", info->zero);
-	printf("star = %d\n", info->star);
-	printf("prec = %d\n", info->prec);
-	printf("width = %d\n", info->width);
-	printf("spec = %c\n", info->spec);*/
 	return (i);
 }
 
-int		set_prec(const char *str_conv, t_info *info)
+/*
+** This function sets the precision. 
+** If the precision is gives only as a dot, the precision is zero.
+**
+** Returns: (int) the steps taken.
+*/
+
+int		set_prec(const char *str_conv, t_info *info, va_list ap)
 {
 	int i;
 	int	j;
 	char *prec;
 
-	//printf("\nEntered set_prec\n");
-	//printf("str_conv= %s\n", str_conv);
 	i = 0;
 	j = 0;
 	if (*(str_conv + j) == '.')
 		j++;
 	else
 		return (0);
+	if (*(str_conv + i + j) == '*')
+	{
+		info->prec = va_arg(ap, int);
+		return (2);
+	}
 	while (ft_isdigit(*(str_conv + j + i)) > 0)
 		i++;
 	prec = ft_substr(str_conv + j, 0, i);
 	if (prec == NULL)
-		return (-1);
+		info->err = 1;
 	info->prec = ft_atoi(prec);
 	free(prec);
-	/*
-	printf("dash = %d\n", info->dash);
-	printf("zero = %d\n", info->zero);
-	printf("star = %d\n", info->star);
-	printf("prec = %d\n", info->prec);
-	printf("width = %d\n", info->width);
-	printf("spec = %c\n", info->spec);*/
 	return (i + j);
 }
+
+/* This function sets the conversion specifier.
+**
+** Returns: (int) 1, because it expects only 1 specifier.
+*/
 
 int		set_spec(const char *str_conv, t_info *info)
 {
 	info->spec = *(str_conv + 0);
-	/*
-	printf("dash = %d\n", info->dash);
-	printf("zero = %d\n", info->zero);
-	printf("star = %d\n", info->star);
-	printf("prec = %d\n", info->prec);
-	printf("width = %d\n", info->width);
-	printf("spec = %c\n", info->spec);*/
 	return (1);
 }

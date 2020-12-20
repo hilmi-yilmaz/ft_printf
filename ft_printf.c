@@ -6,11 +6,10 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:35:20 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/19 19:06:02 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/20 18:31:38 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
 #include "ft_printf.h"
@@ -30,7 +29,7 @@ int		ft_printf(const char *fmt, ...)
 	{
 		if (*(fmt + i) == '%')
 		{
-			i += set_info(fmt + i + 1, &info);
+			i += set_info(fmt + i + 1, &info, ap);
 		}
 		else
 		{
@@ -42,11 +41,11 @@ int		ft_printf(const char *fmt, ...)
 	}
 	va_end(ap);
 	
-	printf("dash = %d\n", info.dash);
-	printf("zero = %d\n", info.zero);
-	printf("star = %d\n", info.star);
-	printf("prec = %d\n", info.prec);
-	printf("width = %d\n", info.width);
-	printf("spec = %c\n", info.spec);
+	printf("dash = %d | ", info.dash);
+	printf("zero = %d | ", info.zero);
+	printf("prec = %d | ", info.prec);
+	printf("width = %d | ", info.width);
+	printf("spec = %c | ", info.spec);
+	printf("err = %d\n", info.err);
 	return (0);
 }
