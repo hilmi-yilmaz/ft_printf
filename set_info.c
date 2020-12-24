@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:32:28 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/20 18:31:40 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/21 23:11:35 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,14 @@ int		set_info(const char *str_conv, t_info *info, va_list ap)
 	if (info->dash == 1)
 		info->zero = 0; 
 	if (info->prec != -1)
-		info->zero = 0;	
+		info->zero = 0;
+	if (info->prec < 0)
+		info->prec = 0;
+	if (info->width < 0)
+	{
+		info->width = info->width * -1;
+		info->dash = 1;
+	}
 	return (step);
 }
 
