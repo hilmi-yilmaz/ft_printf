@@ -6,20 +6,25 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/22 20:20:31 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 14:08:33 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 22:39:14 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /*
-** The d_convert function prints the conversion.
-** It uses ft_itoa and ft_putstr from libft.
+** The d_convert function prints the d-conversion.
+** It uses ft_itoa and ft_putstr_fd from libft.
 ** It also uses the below three functions.
 **
-** Returns: (void) None.
+** Arguments:
+**		(va_list)	ap: the argument list which contains the unnamed arguments.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**
+** Returns:
+** 		(void) 		None.
 */
 
 void	d_convert(va_list ap, t_info *info)
@@ -50,9 +55,16 @@ void	d_convert(va_list ap, t_info *info)
 
 /*
 ** The create_array function allocates exactly enough memory for the string.
-** It also fills it with spaces.
+** It also fills it with spaces using the ft_memset function from libft.
 **
-** Returns: (char *) string which is filled with spaces.
+** Arguments:
+**		(int)		nb: the number to print.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**		(int)		len_nb: the length of the number including '-' sign.
+**
+** Returns:
+**		(char *) 	str: string which is filled with spaces.
 */
 
 char	*create_array(int nb, t_info *info, int len_nb)
@@ -94,7 +106,14 @@ char	*create_array(int nb, t_info *info, int len_nb)
 ** (including - sign).
 ** It takes into account the left or right adjustment parameter info->dash.
 **
-** Returns: (void) None.
+** Arguments:
+**		(char *) 	str: the string to be filled with zeros.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**		(int)		base: the base number to do the calculations (base^power).
+**
+** Returns:
+**		(void) 		None.
 */
 
 void	fill_zeros(char *str, t_info *info, int nb, int base)
@@ -123,7 +142,15 @@ void	fill_zeros(char *str, t_info *info, int nb, int base)
 /*
 ** The fill_nb function fills the string with the number.
 **
-** Returns: (void) None.
+** Arguments:
+**		(char *)	str: the string to be filled.
+**		(char *)	str_nb: the number in a string (result of ft_itoa).
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**		(int)		nb: the number to print.
+**
+** Returns: 
+**		(void) 		None.
 */
 
 void	fill_nb(char *str, char *str_nb, t_info *info, int nb)

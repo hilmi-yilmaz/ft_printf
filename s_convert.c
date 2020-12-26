@@ -6,13 +6,26 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 21:27:22 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/25 15:46:27 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 22:39:03 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 #include <stdlib.h>
+
+/*
+** The s_convert function prints the s-conversion.
+** It uses ft_putstr_fd from libft.
+** It also uses the below two functions.
+**
+** Arguments:
+**		(va_list)	ap: the argument list which contains the unnamed arguments.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**
+** Returns:
+** 		(void) 		None.
+*/
 
 void	s_convert(va_list ap, t_info *info)
 {
@@ -30,6 +43,19 @@ void	s_convert(va_list ap, t_info *info)
 	ft_putstr_fd((char *)str_malloc, 1);
 	free(str_malloc);
 }
+
+/*
+** The create_array_s function allocates exactly enough memory for the string.
+** It also fills it with spaces using the ft_memset function from libft.
+**
+** Arguments:
+**		(const char *)	str: the input string from the arguments list.
+**		(t_info *)		info: pointer to struct which contains the conversion
+**						information.
+**
+** Returns:
+**		(char *) 		str_malloc: string which is filled with spaces.
+*/
 
 char	*create_array_s(const char *str, t_info *info)
 {
@@ -52,13 +78,23 @@ char	*create_array_s(const char *str, t_info *info)
 	if (str_malloc == NULL)
 		return (NULL);
 	*(str_malloc + len_malloc) = '\0';
-	while (*(str_malloc + i) != '\0')
-	{
-		*(str_malloc + i) = ' ';
-		i++;
-	}
+	ft_memset(str_malloc, ' ', (size_t)len_malloc);
 	return (str_malloc);
 }
+
+/*
+** The fill_str function fills the string with the input string from the
+** arguments list.
+**
+** Arguments:
+**		(char *)		str_malloc: the string to be filled.
+**		(const char *)	str: the input string.
+**		(t_info *)		info: pointer to struct which contains the conversion
+**						information.
+**
+** Returns:
+**		(void) 			None.
+*/
 
 void	fill_str(char *str_malloc, const char *str, t_info *info)
 {

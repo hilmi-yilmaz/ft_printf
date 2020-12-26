@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/25 20:08:17 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 14:15:44 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 20:30:34 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 #include <stdlib.h>
 
 /*
-** The x_convert function prints the conversion.
+** The x_convert function prints the x-conversion.
 ** It uses ft_itoa_hex and ft_putstr from libft.
-** It also uses the subfunction of d_convert:
+** It uses the same subfunctions as d_convert:
 ** - create_array()
 ** - fill_zeros()
 ** - fill_nb()
 **
-** Returns: (void) None.
+** Arguments:
+**		(va_list)	ap: The argument list which contains the unnamed arguments.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**
+** Returns:
+** 		(void) None.
 */
 
 void	x_convert(va_list ap, t_info *info)
