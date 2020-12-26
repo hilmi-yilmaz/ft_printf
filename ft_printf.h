@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:14:29 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/24 22:13:30 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/25 20:33:49 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void				exceptions(t_info *info);
 void				conversion(va_list ap, t_info *info);
 void				u_convert(va_list ap, t_info *info);
 void				d_convert(va_list ap, t_info *info);
+void				s_convert(va_list ap, t_info *info);
 
 //d conversion
 char				*create_array(int nb, t_info *info, int len_nb);
@@ -46,6 +47,17 @@ void				fill_nb(char *str, char *str_nb, t_info *info, int nb);
 
 //c conversion
 void				c_convert(va_list ap, t_info *info);
+char				*create_array_c(t_info *info);
+
+//s conversion
+char				*create_array_s(const char *str, t_info *info);
+void				fill_str(char *str_malloc, const char *str, t_info *info);
+
+//x conversion
+void				x_convert(va_list ap, t_info *info);
+
+//exceptions
+void				exceptions(t_info *info);
 
 
 // utils

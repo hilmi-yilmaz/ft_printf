@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   conversion.c                                       :+:    :+:            */
+/*   x_convert.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/22 09:31:17 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/25 20:33:53 by hyilmaz       ########   odam.nl         */
+/*   Created: 2020/12/25 20:08:17 by hyilmaz       #+#    #+#                 */
+/*   Updated: 2020/12/25 20:33:51 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void	conversion(va_list ap, t_info *info)
+void	x_convert(va_list ap, t_info *info)
 {
-	//printf("Entered conversion function\n");
-	if (info->spec == 'd' || info->spec == 'i' || info->spec == 'u')
-		d_convert(ap, info);
-	
-	else if (info->spec == 'x' || info->spec == 'X')
-		x_convert(ap, info);
-	else if (info->spec == 'c')
-		c_convert(ap, info);
-	else if (info->spec == 's')
-		s_convert(ap, info);
-	/*else if (info->spec == 'p')
-		//Go to p_convert function*/
-	else
+	unsigned int	nb;
+	char			*str;
+
+	nb = va_arg(ap, unsigned int);
+	str = ft_itoa_hex(nb);
+	if (str == NULL)
+	{
 		info->err = 1;
-	
-	if (info->err == 1) //can be removed
 		return ;
+	}
+	
+	ft_putstr_fd(str, 1);
+	free(str);
 }

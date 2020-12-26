@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:04:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/24 18:37:57 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/25 15:58:57 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,10 +243,21 @@ int		main(void)
 	ft_printf("%05d|\n", 20);
 	printf("%05d|\n\n", 20);
 
+	//Random testing
+
 	ft_printf("%-10.12u|\n", -12345);
 	printf("%-10.12u|\n\n", -12345);
 
 	ft_printf("%-10.12d|\n", -2147483647);
 	printf("%-10.12d|\n\n", -2147483647);
+
+	ft_printf("%d|\n", 0xFAFA);
+	printf("%d|\n\n", 0xFAFA);
+
+	ft_printf("%d|\n", 0xAEB);
+	printf("%d|\n\n", 0xAEB);
+
+	ft_printf("%d|\n", 0xE9C);
+	printf("%d|\n\n", 0xE9C);
 	return (0);
 }
