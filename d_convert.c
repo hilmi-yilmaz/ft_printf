@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/22 20:20:31 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/24 18:34:19 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 14:08:33 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	d_convert(va_list ap, t_info *info)
 	}
 	len_nb = ft_strlen(str_nb);
 	str = create_array(nb, info, len_nb);
-	fill_zeros(str, info, nb);
+	fill_zeros(str, info, nb, 10);
 	fill_nb(str, str_nb, info, nb);
 	ft_putstr_fd(str, 1);
 	free(str);
@@ -60,16 +60,20 @@ char	*create_array(int nb, t_info *info, int len_nb)
 	int		len_str;
 	char	*str;
 
-	if (info->width >= len_nb && info->width > info->prec)
-		len_str = info->width;
-	if (len_nb > info->width && len_nb > info->prec)
+	if (len_nb >= info->prec)
 		len_str = len_nb;
-	if (info->prec >= len_nb && info->prec >= info->width && nb >= 0)
+	else
 		len_str = info->prec;
-	if (info->prec >= len_nb && info->prec >= info->width && nb < 0)
-		len_str = info->prec + 1;
+	if (len_str < info->width)
+		len_str = info->width;
+	if (nb == 0 && info->prec == -1)
+		len_str = 1;
 	if (nb == 0 && info->prec == 0)
 		len_str = 0;
+	if (nb < 0 && info->prec >= len_nb && info->prec >= info->width)
+		len_str++;
+	if (info->prec == -1)
+		info->prec = 0;
 	str = (char *)malloc(sizeof(char) * len_str + 1);
 	if (str == NULL)
 	{
@@ -93,7 +97,7 @@ char	*create_array(int nb, t_info *info, int len_nb)
 ** Returns: (void) None.
 */
 
-void	fill_zeros(char *str, t_info *info, int nb)
+void	fill_zeros(char *str, t_info *info, int nb, int base)
 {
 	int i;
 	int j;
@@ -108,7 +112,7 @@ void	fill_zeros(char *str, t_info *info, int nb)
 			i = 0;
 	}
 	j = 0;
-	while (*(str + i) != '\0' && (j < info->prec || j < ft_nblen(nb)))
+	while (*(str + i) != '\0' && (j < info->prec || j < ft_nblen(nb, base)))
 	{
 		*(str + i) = '0';
 		i++;

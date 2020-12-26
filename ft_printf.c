@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:35:20 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/25 20:34:03 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 14:11:29 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		ft_printf(const char *fmt, ...)
 		{
 			i += set_info(fmt + i + 1, &info, ap);
 			conversion(ap, &info);
+			if (info.err == 1)
+				return (-1);
 		}
 		else
 		{

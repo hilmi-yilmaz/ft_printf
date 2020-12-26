@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:04:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/25 15:58:57 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 12:36:27 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,9 @@ int		main(void)
 	ft_printf("%.0d|\n", 0);
 	printf("%.0d|\n\n", 0);
 
+	ft_printf("%d|\n", 0);
+	printf("%d|\n\n", 0);
+	
 	//Equal parameters positive
 	printf("Printing positive numbers (dash = 0) with equal parameters\n");
 	ft_printf("%7.7d|\n", 123);

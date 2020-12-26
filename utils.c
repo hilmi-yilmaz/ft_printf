@@ -6,11 +6,11 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/22 20:33:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/24 22:13:38 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/26 12:03:20 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_nblen(int nb)
+int		ft_nblen(int nb, int base)
 {
 	int i;
 
@@ -19,7 +19,7 @@ int		ft_nblen(int nb)
 		return (1);
 	while (nb != 0)
 	{
-		nb = nb / 10;
+		nb = nb / base;
 		i++;
 	}
 	return (i);
