@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/26 18:41:39 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 22:12:02 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 13:50:04 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*
 ** The p_convert function prints the p-conversion.
-** It uses the ft_ultoa_hex and ft_putstr_fd.
+** It uses the ft_strlen, ft_ultoa_hex and ft_putstr_fd.
 ** It also uses the below two functions.
 **
 ** Arguments:
@@ -41,6 +41,7 @@ void	p_convert(va_list ap, t_info *info)
 		info->err = 1;
 		return ;
 	}
+	info->return_val = ft_strlen(str);
 	fill_addr(str, str_nb, info);
 	ft_putstr_fd(str, 1);
 	free(str_nb);
@@ -78,6 +79,7 @@ char	*create_array_p(char *str_nb, t_info *info)
 
 /*
 ** The fill_addr function fills the string with the address.
+** It also add 0x at the beginning of the string.
 **
 ** Arguments:
 **		(char *)	str: the string to be filled.
@@ -85,7 +87,7 @@ char	*create_array_p(char *str_nb, t_info *info)
 **		(t_info *)	info: pointer to struct which contains the conversion
 **					information.
 **
-** Returns: 
+** Returns:
 **		(void) 		None.
 */
 

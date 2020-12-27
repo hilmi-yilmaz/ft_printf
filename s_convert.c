@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 21:27:22 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 22:39:03 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 17:38:17 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*
 ** The s_convert function prints the s-conversion.
-** It uses ft_putstr_fd from libft.
+** It uses ft_strlen, ft_putstr_fd from libft.
 ** It also uses the below two functions.
 **
 ** Arguments:
@@ -34,6 +34,7 @@ void	s_convert(va_list ap, t_info *info)
 
 	str = va_arg(ap, const char *);
 	str_malloc = create_array_s(str, info);
+	info->return_val = ft_strlen(str_malloc);
 	if (str_malloc == NULL)
 	{
 		info->err = 1;
@@ -59,12 +60,10 @@ void	s_convert(va_list ap, t_info *info)
 
 char	*create_array_s(const char *str, t_info *info)
 {
-	int		i;
 	int		len_str;
 	int		len_malloc;
 	char	*str_malloc;
 
-	i = 0;
 	len_str = (int)ft_strlen(str);
 	if (info->prec >= len_str && info->prec != -1)
 		len_malloc = len_str;

@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/25 20:08:17 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 20:30:34 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 17:38:21 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*
 ** The x_convert function prints the x-conversion.
-** It uses ft_itoa_hex and ft_putstr from libft.
+** It uses ft_strlen, ft_itoa_hex and ft_putstr and ft_toupper_str from libft.
 ** It uses the same subfunctions as d_convert:
 ** - create_array()
 ** - fill_zeros()
@@ -46,6 +46,7 @@ void	x_convert(va_list ap, t_info *info)
 		return ;
 	}
 	str_result = create_array(nb, info, len_nb);
+	info->return_val = ft_strlen(str_result);
 	fill_zeros(str_result, info, nb, 16);
 	fill_nb(str_result, str_nb, info, nb);
 	if (info->spec == 'X')

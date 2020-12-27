@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:14:29 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 21:42:02 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 13:26:30 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_info
 	int				prec;
 	int				width;
 	int				err;
+	int				return_val;
 	char			spec;
 
 }					t_info;

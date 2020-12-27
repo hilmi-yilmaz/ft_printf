@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/22 20:20:31 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 22:39:14 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 17:38:16 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <stdlib.h>
 
 /*
-** The d_convert function prints the d-conversion.
-** It uses ft_itoa and ft_putstr_fd from libft.
+** The d_convert function prints the {d, i, u}-conversion.
+** It uses ft_strlen, ft_itoa and ft_putstr_fd from libft.
 ** It also uses the below three functions.
 **
 ** Arguments:
@@ -46,6 +46,7 @@ void	d_convert(va_list ap, t_info *info)
 	}
 	len_nb = ft_strlen(str_nb);
 	str = create_array(nb, info, len_nb);
+	info->return_val = ft_strlen(str);
 	fill_zeros(str, info, nb, 10);
 	fill_nb(str, str_nb, info, nb);
 	ft_putstr_fd(str, 1);
@@ -149,7 +150,7 @@ void	fill_zeros(char *str, t_info *info, int nb, int base)
 **					information.
 **		(int)		nb: the number to print.
 **
-** Returns: 
+** Returns:
 **		(void) 		None.
 */
 

@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:04:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 12:36:27 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/27 13:37:44 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ int		main(void)
 	printf("%16p-\n", "123");
 	printf("%p-\n", "123");
 	printf("%15p-\n", "123");*/
-
+	
 	//Positive numbers
 	printf("Printing positive numbers (dash = 0)\n");
-	ft_printf("%7.5d|\n", 123);
-	printf("%7.5d|\n\n", 123);
+	ft_printf("%7.5d|", 123);
+	printf("%7.5d|", 123);
 
 	ft_printf("%7.2d|\n", 123);
 	printf("%7.2d|\n\n", 123);
