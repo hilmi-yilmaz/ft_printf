@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run d_convert
-gcc -Wall -Wextra -Werror -fsanitize=address -g ft_printf.c set_info.c utils.c d_convert.c c_convert.c s_convert.c x_convert.c p_convert.c d_main.c conversion.c exceptions.c libft/libft.a && ./a.out
+clang -Wall -Wextra -Werror -fsanitize=address -g d_main.c libftprintf.a && ./a.out
 
 # Run c_convert
 #gcc -Wall -Wextra -Werror -fsanitize=address -g ft_printf.c set_info.c utils.c d_convert.c c_convert.c s_convert.c x_convert.c c_main.c conversion.c exceptions.c libft/libft.a && ./a.out
