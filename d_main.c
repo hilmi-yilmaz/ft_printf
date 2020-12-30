@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:04:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 13:37:44 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2020/12/30 09:44:14 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,5 +262,9 @@ int		main(void)
 
 	ft_printf("%d|\n", 0xE9C);
 	printf("%d|\n\n", 0xE9C);
+
+	ft_printf("%6.0d|\n", 0);
+	printf("%6.0d|\n", 0);
+
 	return (0);
 }
