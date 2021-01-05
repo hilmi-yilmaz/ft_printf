@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:14:29 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 13:26:30 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/05 19:01:30 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void				fill_zeros_x(char *str, t_info *info);
 
 void				c_convert(va_list ap, t_info *info);
 char				*create_array_c(t_info *info);
+void				exception_zero(unsigned char c, t_info *info);
+
 
 /*
 ** These functions handle the s-conversion
@@ -84,6 +86,7 @@ char				*create_array_c(t_info *info);
 
 char				*create_array_s(const char *str, t_info *info);
 void				fill_str(char *str_malloc, const char *str, t_info *info);
+void				fill_null(char *str_malloc, t_info *info);
 
 /*
 ** These functions handle the p-conversion.

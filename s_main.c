@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 21:25:38 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/25 15:54:20 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/01 23:09:08 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(void)
 {
-	printf("Printing with single flags\n");
+	/*printf("Printing with single flags\n");
 	printf("%-s|\n", "hilmi");
 	ft_printf("%-s|\n\n", "hilmi");
 	
@@ -204,6 +204,19 @@ int		main(void)
 	ft_printf("%.s|\n\n", "");
 
 	printf("%-.s|\n", "");
-	ft_printf("%-.s|\n\n", "");
+	ft_printf("%-.s|\n\n", "");*/
+
+
+	char *a;
+	a = NULL;
+	printf("%s\n", a);
+	ft_printf("%s\n", a);
+	
+	//printf("%8s\n", NULL);
+//	ft_printf("%8s\n", NULL);
+	
+//	printf("%-8s\n", NULL);
+//	ft_printf("%-8s\n", NULL);
+
 	return (0);
 }
