@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/25 15:19:30 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/26 18:43:36 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/06 20:44:27 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 	printf("%.1x|\n", 123);*/
 
 	//Testing with single parameters
-	printf("Testing with single parameters (dash = 0)\n");	
+	/*printf("Testing with single parameters (dash = 0)\n");	
 	ft_printf("%7x|\n", 0x8BA);
 	printf("%7x|\n\n", 0x8BA);
 
@@ -207,7 +207,16 @@ int		main(void)
 	printf("%X|\n\n", 0xAEB);
 
 	ft_printf("%X|\n", 0xE9C);
-	printf("%X|\n\n", 0xE9C);
+	printf("%X|\n\n", 0xE9C);*/
 
+	ft_printf("|%-4.0x|\n", 0);
+	ft_printf("|%-4.0d|\n", 0);
+	//printf("|%-4.0x|\n\n", 0);
+
+	//ft_printf("|%4.0x|\n", 0);
+	//printf("|%4.0x|\n\n", 0);
+
+	
+	
 	return (0);
 }
