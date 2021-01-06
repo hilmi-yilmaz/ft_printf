@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 21:25:38 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/01 23:09:08 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/06 15:07:39 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,14 +209,13 @@ int		main(void)
 
 	char *a;
 	a = NULL;
-	printf("%s\n", a);
-	ft_printf("%s\n", a);
+	printf("|%s|\n", a);
+	ft_printf("|%s|\n", a);
 	
-	//printf("%8s\n", NULL);
-//	ft_printf("%8s\n", NULL);
-	
-//	printf("%-8s\n", NULL);
-//	ft_printf("%-8s\n", NULL);
+	printf("|%8s|\n", a);
+	ft_printf("|%8s|\n", a);
+	printf("|%-8s|\n", a);
+	ft_printf("|%-8s|\n", a);
 
 	return (0);
 }
