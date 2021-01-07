@@ -187,6 +187,8 @@ int		set_prec(const char *str_conv, t_info *info, va_list ap)
 
 int		set_spec(const char *str_conv, t_info *info)
 {
+	if (ft_isalpha(info->spec) == 0)
+		return (0);
 	info->spec = *(str_conv + 0);
 	return (1);
 }

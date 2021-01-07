@@ -39,6 +39,8 @@ void	conversion(va_list ap, t_info *info)
 		p_convert(ap, info);
 	else if (info->spec == '%')
 		c_convert(ap, info);
+	else if (info->spec == '\0')
+		return ;
 	else
 		info->err = 1;
 }

@@ -24,8 +24,7 @@
 
 void	exceptions(t_info *info)
 {
-	if (info->dash == 1)
-		info->zero = 0;
+
 	if (info->prec != -1)
 		info->zero = 0;
 	if (info->prec < -1)
@@ -35,4 +34,6 @@ void	exceptions(t_info *info)
 		info->width = info->width * -1;
 		info->dash = 1;
 	}
+	if (info->dash == 1)
+		info->zero = 0;
 }
