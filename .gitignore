@@ -1,1 +1,3 @@
 .vscode/
+copy_to_tester.sh
+main.c

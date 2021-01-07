@@ -6,11 +6,11 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:04:06 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/30 20:59:53 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/06 22:24:51 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 
 int		main(void)
@@ -278,8 +278,8 @@ int		main(void)
 	ft_printf("%6.d|\n", 0);
 	printf("%6.d|\n", 0);*/
 	
-	ft_printf("%0d|\n", -1);
-	printf("%0d|\n", -1);
+	ft_printf("|%3d|\n", 0);
+	printf("|%3d|\n", 0);
 
 	return (0);
 }

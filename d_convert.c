@@ -81,8 +81,6 @@ char	*create_array(int nb, t_info *info, int len_nb)
 		len_str = info->prec;
 	if (len_str < info->width)
 		len_str = info->width;
-	if (nb == 0 && info->prec == -1)
-		len_str = 1;
 	if (nb == 0 && info->prec == 0)
 		len_str = info->width;
 	if (nb < 0 && info->prec >= len_nb && info->prec >= info->width)
