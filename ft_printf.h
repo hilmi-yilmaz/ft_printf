@@ -83,7 +83,6 @@ void				c_convert(va_list ap, t_info *info);
 char				*create_array_c(t_info *info);
 void				exception_zero(unsigned char c, t_info *info);
 
-
 /*
 ** These functions handle the s-conversion
 */

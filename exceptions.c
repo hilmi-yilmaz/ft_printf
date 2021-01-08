@@ -24,7 +24,6 @@
 
 void	exceptions(t_info *info)
 {
-
 	if (info->prec < -1)
 		info->prec = -1;
 	if (info->prec != -1)

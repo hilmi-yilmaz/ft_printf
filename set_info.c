@@ -34,6 +34,7 @@
 int		set_info(const char *str_conv, t_info *info, va_list ap)
 {
 	int	step;
+	int	prec_return;
 
 	step = 0;
 	info->dash = 0;
@@ -47,9 +48,13 @@ int		set_info(const char *str_conv, t_info *info, va_list ap)
 	step += set_width(str_conv + step, info, ap);
 	if (info->err == 1)
 		return (-1);
-	step += set_prec(str_conv + step, info, ap);
-	if (info->err == 1)
+	prec_return = set_prec(str_conv + step, info, ap);
+	if (prec_return == -1)
+	{
+		info->err = 1;
 		return (-1);
+	}
+	step += prec_return;
 	step += set_spec(str_conv + step, info);
 	exceptions(info);
 	return (step);
@@ -162,10 +167,7 @@ int		set_prec(const char *str_conv, t_info *info, va_list ap)
 		i++;
 	prec = ft_substr(str_conv + j, 0, i);
 	if (prec == NULL)
-	{
-		info->err = 1;
 		return (-1);
-	}
 	info->prec = ft_atoi(prec);
 	free(prec);
 	return (i + j);

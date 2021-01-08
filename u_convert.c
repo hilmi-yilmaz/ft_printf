@@ -29,7 +29,7 @@
 
 void	u_convert(va_list ap, t_info *info)
 {
-	long    nb;
+	long	nb;
 	int		len_nb;
 	char	*str_nb;
 	char	*str;
