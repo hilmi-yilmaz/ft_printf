@@ -15,7 +15,7 @@
 
 /*
 ** The set_info function sets the information for the conversions.
-** It start by giving default values.
+** It starts by giving default values.
 ** prec = -1 means no precision given.
 ** It also handles some exceptions, see exceptions.c.
 **
@@ -23,7 +23,7 @@
 **		(const char *)	str_conv: the start of the conversion string.
 **		(t_info *)		info: pointer to struct which contains the conversion
 **						information.
-**		(va_list)		ap: The argument list which contains the unnamed
+**		(va_list)		ap: the argument list which contains the unnamed
 **						arguments.
 **
 ** Returns:
@@ -184,7 +184,7 @@ int		set_prec(const char *str_conv, t_info *info, va_list ap)
 **						arguments.
 **
 ** Returns:
-**		(int) 			1, because it expects only 1 specifier.
+**		(int) 			1 (step), because it expects only 1 specifier.
 */
 
 int		set_spec(const char *str_conv, t_info *info)

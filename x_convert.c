@@ -15,7 +15,7 @@
 
 /*
 ** The x_convert function prints the x-conversion.
-** It uses ft_strlen, ft_itoa_hex and ft_putstr and ft_toupper_str from libft.
+** It uses ft_strlen, ft_itoa_hex, ft_putstr and ft_toupper_str from libft.
 ** It uses the same subfunctions as d_convert:
 ** - create_array()
 ** - fill_zeros()
@@ -39,20 +39,28 @@ void	x_convert(va_list ap, t_info *info)
 
 	nb = va_arg(ap, unsigned int);
 	str_nb = ft_ultoa_hex(nb);
-	len_nb = (int)ft_strlen(str_nb);
 	if (str_nb == NULL)
 	{
 		info->err = 1;
 		return ;
 	}
+	len_nb = (int)ft_strlen(str_nb);
 	str_result = create_array(nb, info, len_nb);
+	if (info->err == 1)
+		return ;
 	info->return_val = ft_strlen(str_result);
 	fill_zeros(str_result, info, nb, 16);
 	fill_nb(str_result, str_nb, info, nb);
+	put_minus(str_result, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str_result, ' ', ft_strlen(str_result));
 	if (info->spec == 'X')
 		ft_toupper_str(str_result);
+	put_x(str_result, str_nb);
+}
+
+void	put_x(char *str_result, char *str_nb)
+{
 	ft_putstr_fd(str_result, 1);
 	free(str_nb);
 	free(str_result);

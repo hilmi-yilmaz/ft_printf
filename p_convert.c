@@ -35,12 +35,14 @@ void	p_convert(va_list ap, t_info *info)
 
 	addr = va_arg(ap, unsigned long);
 	str_nb = ft_ultoa_hex(addr);
-	str = create_array_p(str_nb, info);
-	if (str == NULL)
+	if (str_nb == NULL)
 	{
 		info->err = 1;
 		return ;
 	}
+	str = create_array_p(str_nb, info);
+	if (info->err == 1)
+		return ;
 	info->return_val = ft_strlen(str);
 	fill_addr(str, str_nb, info);
 	ft_putstr_fd(str, 1);
@@ -71,7 +73,10 @@ char	*create_array_p(char *str_nb, t_info *info)
 		len_str = info->width;
 	str = (char *)malloc(sizeof(char) * len_str + 1);
 	if (str == NULL)
+	{
+		info->err = 1;
 		return (NULL);
+	}
 	ft_memset(str, ' ', (size_t)len_str);
 	*(str + len_str) = '\0';
 	return (str);

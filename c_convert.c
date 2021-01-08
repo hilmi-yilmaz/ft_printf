@@ -12,12 +12,11 @@
 
 #include "ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /*
 ** The c_convert function prints the c-conversion.
-** It uses ft_putstr_fd from libft.
-** It also uses the below  function.
+** It uses ft_putstr_fd and ft_putchar from libft.
+** It also uses the below two function.
 **
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.

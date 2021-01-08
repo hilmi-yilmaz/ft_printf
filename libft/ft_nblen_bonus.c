@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   exceptions.c                                       :+:    :+:            */
+/*   ft_nblen_bonus.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/25 11:19:08 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 12:35:24 by hyilmaz       ########   odam.nl         */
+/*   Created: 2021/01/08 18:13:02 by hyilmaz       #+#    #+#                 */
+/*   Updated: 2021/01/08 18:13:08 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
 /*
-** The exceptions function sets some exceptions as given in the manpage.
+** The ft_nblen function calculates the length of a number based
+** on a given base.
+** E.g. 3869 with base 10 has a length of 4 (4 digits).
 **
-**		(t_info *)		info: pointer to struct which contains the conversion
-**						information.
+** Arguments:
+**		(long)	nb: the input number.
+**		(int)	base: the base for which to calculate the length.
 **
 ** Returns:
-**		(void)			None.
+**		(int)	i: length of the number
 */
 
-void	exceptions(t_info *info)
+int		ft_nblen(long nb, int base)
 {
-	if (info->prec < -1)
-		info->prec = -1;
-	if (info->prec != -1)
-		info->zero = 0;
-	if (info->width < 0)
+	int i;
+
+	i = 0;
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
 	{
-		info->width = info->width * -1;
-		info->dash = 1;
+		nb = nb / base;
+		i++;
 	}
-	if (info->dash == 1)
-		info->zero = 0;
+	return (i);
 }

@@ -22,6 +22,8 @@ int		ft_printf(const char *fmt, ...)
 	int		count;
 	t_info	info;
 
+	if (fmt == NULL)
+		return (-1);
 	va_start(ap, fmt);
 	i = 0;
 	count = 0;

@@ -16,7 +16,10 @@
 /*
 ** The u_convert function prints the u-conversion.
 ** It uses ft_strlen, ft_ltoa_dec and ft_putstr_fd from libft.
-** It also uses the below three functions.
+** It uses the same subfunctions as d_convert:
+** - create_array()
+** - fill_zeros()
+** - fill_nb()
 **
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.
@@ -43,9 +46,12 @@ void	u_convert(va_list ap, t_info *info)
 	}
 	len_nb = ft_strlen(str_nb);
 	str = create_array(nb, info, len_nb);
+	if (info->err == 1)
+		return ;
 	info->return_val = ft_strlen(str);
 	fill_zeros(str, info, nb, 10);
 	fill_nb(str, str_nb, info, nb);
+	put_minus(str, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str, ' ', ft_strlen(str));
 	ft_putstr_fd(str, 1);

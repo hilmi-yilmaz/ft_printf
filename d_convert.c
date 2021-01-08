@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** The d_convert function prints the {d, i, u}-conversion.
+** The d_convert function prints the {d, i}-conversion.
 ** It uses ft_strlen, ft_itoa and ft_putstr_fd from libft.
 ** It also uses the below three functions.
 **
@@ -43,9 +43,12 @@ void	d_convert(va_list ap, t_info *info)
 	}
 	len_nb = ft_strlen(str_nb);
 	str = create_array(nb, info, len_nb);
+	if (info->err == 1)
+		return ;
 	info->return_val = ft_strlen(str);
 	fill_zeros(str, info, nb, 10);
 	fill_nb(str, str_nb, info, nb);
+	put_minus(str, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str, ' ', ft_strlen(str));
 	ft_putstr_fd(str, 1);
@@ -99,14 +102,15 @@ char	*create_array(long nb, t_info *info, int len_nb)
 /*
 ** The fill_zeros function fills the string "str" with zeros.
 ** It fills a maximum of info->prec zeros or length of the number
-** (including - sign).
+** (including '-' sign).
 ** It takes into account the left or right adjustment parameter info->dash.
 **
 ** Arguments:
 **		(char *) 	str: the string to be filled with zeros.
 **		(t_info *)	info: pointer to struct which contains the conversion
 **					information.
-**		(int)		base: the base number to do the calculations (base^power).
+**		(int)		base: the base number to do the calculations
+**					with (base^power).
 **
 ** Returns:
 **		(void) 		None.
@@ -174,6 +178,12 @@ void	fill_nb(char *str, char *str_nb, t_info *info, long nb)
 		i--;
 		j--;
 	}
+}
+
+void	put_minus(char *str, t_info *info, long nb)
+{
+	int i;
+
 	i = 0;
 	while (ft_isdigit(*(str + i)) == 0 && nb < 0 && info->dash == 0)
 		i++;

@@ -23,8 +23,7 @@ SRC =	ft_printf.c \
 		x_convert.c \
 		c_convert.c \
 		s_convert.c \
-		p_convert.c \
-		utils.c
+		p_convert.c
 
 OBJ := $(SRC:.c=.o)
 HEADER_FILE = ft_printf.h

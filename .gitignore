@@ -7,3 +7,4 @@ mains/
 pft/
 42TESTERS-PRINTF/
 LJtester/
+*.orig

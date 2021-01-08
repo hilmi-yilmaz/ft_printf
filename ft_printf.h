@@ -47,7 +47,7 @@ int					set_spec(const char *str_conv, t_info *info);
 void				exceptions(t_info *info);
 
 /*
-** The conversion function calls {d,u,s,x,p}_convert to print the values.
+** The conversion function calls {d,i,u,x,X,s,c,p}_convert to print the values.
 */
 
 void				conversion(va_list ap, t_info *info);
@@ -60,6 +60,7 @@ void				d_convert(va_list ap, t_info *info);
 char				*create_array(long nb, t_info *info, int len_nb);
 void				fill_zeros(char *str, t_info *info, long nb, int base);
 void				fill_nb(char *str, char *str_nb, t_info *info, long nb);
+void				put_minus(char *str, t_info *info, long nb);
 
 /*
 ** These functions handle the u conversion.
@@ -72,8 +73,7 @@ void				u_convert(va_list ap, t_info *info);
 */
 
 void				x_convert(va_list ap, t_info *info);
-char				*create_array_x(t_info *info, int nb, int len_nb);
-void				fill_zeros_x(char *str, t_info *info);
+void				put_x(char *str_result, char *str_nb);
 
 /*
 ** These functions handle the c-conversion.
@@ -98,15 +98,5 @@ void				fill_str(char *str_malloc, const char *str, t_info *info);
 void				p_convert(va_list ap, t_info *info);
 char				*create_array_p(char *str_nb, t_info *info);
 void				fill_addr(char *str, char *str_nb, t_info *info);
-
-/*
-** Here are some utils functions.
-*/
-
-int					ft_nblen(long nb, int base);
-int					max_number(int a, int b);
-int					ft_abs(int a);
-int					ft_strchr1(char *s, int c);
-int					ft_cntchr(char *str, int c);
 
 #endif

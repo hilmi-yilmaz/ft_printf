@@ -36,14 +36,14 @@ void	s_convert(va_list ap, t_info *info)
 	if (str == NULL)
 		str = "(null)";
 	str_malloc = create_array_s(str, info);
-	info->return_val = ft_strlen(str_malloc);
 	if (str_malloc == NULL)
 	{
 		info->err = 1;
 		return ;
 	}
+	info->return_val = ft_strlen(str_malloc);
 	fill_str(str_malloc, str, info);
-	ft_putstr_fd((char *)str_malloc, 1);
+	ft_putstr_fd(str_malloc, 1);
 	free(str_malloc);
 }
 
@@ -101,23 +101,17 @@ void	fill_str(char *str_malloc, const char *str, t_info *info)
 {
 	int i;
 	int	len_str;
-	int	to_fill;
 
 	i = 0;
-	len_str = (int)ft_strlen(str);
+	len_str = ft_strlen(str);
 	if (info->prec < len_str && info->prec != -1)
 		len_str = info->prec;
 	if (info->dash == 0)
 		i = info->width - len_str;
 	if (i < 0)
 		i = 0;
-	to_fill = ft_strlen(str);
-	if (to_fill > info->prec)
-		to_fill = info->prec;
-	else if (to_fill > info->prec)
-		to_fill = 0;
 	if (info->prec == -1)
 		ft_memmove(str_malloc + i, str, ft_strlen(str));
 	else
-		ft_memmove(str_malloc + i, str, to_fill);
+		ft_memmove(str_malloc + i, str, len_str);
 }
