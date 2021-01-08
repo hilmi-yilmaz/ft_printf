@@ -5,4 +5,5 @@ s_convert.c.orig
 run.sh
 mains/
 pft/
-42TESTERS-PRINTF
+42TESTERS-PRINTF/
+LJtester/
