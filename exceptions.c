@@ -25,10 +25,10 @@
 void	exceptions(t_info *info)
 {
 
-	if (info->prec != -1)
-		info->zero = 0;
 	if (info->prec < -1)
 		info->prec = -1;
+	if (info->prec != -1)
+		info->zero = 0;
 	if (info->width < 0)
 	{
 		info->width = info->width * -1;
