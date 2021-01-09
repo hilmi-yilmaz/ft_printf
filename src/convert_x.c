@@ -34,7 +34,7 @@ static void	put_x(char *str_result, char *str_nb)
 
 /*
 ** The x_convert function prints the x-conversion.
-** It uses ft_strlen, ft_itoa_hex, ft_putstr and ft_toupper_str from libft.
+** It uses ft_strlen, ft_ultoa_hex, ft_putstr and ft_toupper_str from libft.
 ** It also uses the following functions from the utils directory:
 ** - fill_spaces()
 ** - fill_zeros()

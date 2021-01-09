@@ -6,7 +6,7 @@
 #    By: hyilmaz <marvin@codam.nl>                    +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 12:51:19 by hyilmaz       #+#    #+#                  #
-#    Updated: 2021/01/08 18:15:10 by hyilmaz       ########   odam.nl          #
+#    Updated: 2021/01/09 22:52:17 by hyilmaz       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ BONUS_SOURCE = ft_lstnew.c \
 			   ft_lstmap.c \
 			   ft_toupper_str_bonus.c \
 			   ft_ultoa_hex_bonus.c \
-			   ft_itoa_hex_bonus.c \
 			   ft_ltoa_dec_bonus.c \
 			   ft_nblen_bonus.c
 
