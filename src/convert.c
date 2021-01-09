@@ -23,22 +23,20 @@
 **		(void)		None.
 */
 
-void	conversion(va_list ap, t_info *info)
+void	convert(va_list ap, t_info *info)
 {
 	if (info->spec == 'd' || info->spec == 'i')
-		d_convert(ap, info);
+		convert_d(ap, info);
 	else if (info->spec == 'u')
-		u_convert(ap, info);
+		convert_u(ap, info);
 	else if (info->spec == 'x' || info->spec == 'X')
-		x_convert(ap, info);
-	else if (info->spec == 'c')
-		c_convert(ap, info);
+		convert_x(ap, info);
+	else if (info->spec == 'c' || info->spec == '%')
+		convert_c(ap, info);
 	else if (info->spec == 's')
-		s_convert(ap, info);
+		convert_s(ap, info);
 	else if (info->spec == 'p')
-		p_convert(ap, info);
-	else if (info->spec == '%')
-		c_convert(ap, info);
+		convert_p(ap, info);
 	else if (info->spec == '\0')
 		return ;
 	else

@@ -14,12 +14,12 @@
 #include <stdlib.h>
 
 /*
-** The u_convert function prints the u-conversion.
+** The convert_u function prints the u-conversion.
 ** It uses ft_strlen, ft_ltoa_dec and ft_putstr_fd from libft.
-** It uses the same subfunctions as d_convert:
-** - create_array()
+** It also uses the following functions from the utils directory:
+** - fill_spaces()
 ** - fill_zeros()
-** - fill_nb()
+** - fill_number()
 **
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.
@@ -30,7 +30,7 @@
 ** 		(void) 		None.
 */
 
-void	u_convert(va_list ap, t_info *info)
+void	convert_u(va_list ap, t_info *info)
 {
 	long	nb;
 	int		len_nb;
@@ -45,12 +45,12 @@ void	u_convert(va_list ap, t_info *info)
 		return ;
 	}
 	len_nb = ft_strlen(str_nb);
-	str = create_array(nb, info, len_nb);
+	str = fill_spaces(nb, info, len_nb);
 	if (info->err == 1)
 		return ;
 	info->return_val = ft_strlen(str);
 	fill_zeros(str, info, nb, 10);
-	fill_nb(str, str_nb, info, nb);
+	fill_number(str, str_nb, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str, ' ', ft_strlen(str));
 	ft_putstr_fd(str, 1);

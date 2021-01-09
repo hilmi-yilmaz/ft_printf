@@ -14,7 +14,8 @@
 #include <stdlib.h>
 
 /*
-** The create_array_p function allocates exactly enough memory for the string to be printed.
+** The fill_spaces_p function allocates exactly enough memory for the string
+** to be printed.
 ** It also fills it with spaces using the ft_memset function from libft.
 **
 ** Arguments:
@@ -26,7 +27,7 @@
 **		(char *) 	str: string which is filled with spaces.
 */
 
-static char	*create_array_p(char *str_nb, t_info *info)
+static char	*fill_spaces_p(char *str_nb, t_info *info)
 {
 	int		len_str;
 	char	*str;
@@ -82,7 +83,7 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 }
 
 /*
-** The p_convert function prints the p-conversion.
+** The convert_p function prints the p-conversion.
 ** It uses the ft_strlen, ft_ultoa_hex and ft_putstr_fd.
 ** It also uses the below two functions.
 **
@@ -95,7 +96,7 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 ** 		(void) 		None.
 */
 
-void	p_convert(va_list ap, t_info *info)
+void		convert_p(va_list ap, t_info *info)
 {
 	unsigned long	addr;
 	char			*str_nb;
@@ -108,7 +109,7 @@ void	p_convert(va_list ap, t_info *info)
 		info->err = 1;
 		return ;
 	}
-	str = create_array_p(str_nb, info);
+	str = fill_spaces_p(str_nb, info);
 	if (info->err == 1)
 		return ;
 	info->return_val = ft_strlen(str);

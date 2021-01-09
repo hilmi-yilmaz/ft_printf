@@ -10,36 +10,45 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC			= 	gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS 		= 	-Wall -Wextra -Werror
 
-NAME=libftprintf.a
+NAME		= 	libftprintf.a
 
-LIBFT=libft/libft.a
+LIBFT		= 	libft/libft.a
 
-SRC_PATH = src/
+SRC_PATH 	= 	src/
 
-SRC =	ft_printf.c \
-		set_info.c \
-		exceptions.c \
-		conversion.c \
-		d_convert.c \
-		u_convert.c \
-		x_convert.c \
-		c_convert.c \
-		s_convert.c \
-		p_convert.c
+UTILS_PATH 	= 	src/utils/
 
-OBJ := $(SRC:%.c=$(SRC_PATH)%.o)
+HEADER_FILE	= 	$(SRC_PATH)ft_printf.h
 
-HEADER_FILE = $(SRC_PATH)ft_printf.h
+SRC 		=	ft_printf.c \
+			  	set_info.c \
+		      	set_excep.c \
+				convert.c \
+				convert_d.c \
+				convert_u.c \
+				convert_x.c \
+				convert_s.c \
+				convert_c.c \
+				convert_p.c
+
+UTILS 		= 	fill_minus.c \
+				fill_number.c \
+				fill_spaces.c \
+				fill_zeros.c
+
+SRC_OBJ 	:= 	$(SRC:%.c=$(SRC_PATH)%.o)
+
+UTILS_OBJ 	:= 	$(UTILS:%.c=$(UTILS_PATH)%.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ)
+$(NAME): $(LIBFT) $(SRC_OBJ) $(UTILS_OBJ)
 	cp $< $@
-	ar cr $@ $(OBJ)
+	ar cr $@ $(SRC_OBJ) $(UTILS_OBJ)
 
 %.o: %.c $(HEADER_FILE)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -48,8 +57,8 @@ $(LIBFT):
 	make bonus -C libft
 
 clean:
-	make clean -C libft
-	rm -f $(OBJ)
+	make fclean -C libft
+	rm -f $(SRC_OBJ) $(UTILS_OBJ)
 
 fclean: clean
 	rm -f $(LIBFT)

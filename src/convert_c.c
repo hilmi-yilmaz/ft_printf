@@ -14,7 +14,8 @@
 #include <stdlib.h>
 
 /*
-** The create_array_c function allocates exactly enough memory for the string to be printed.
+** The fill_spaces_c function allocates exactly enough memory for the string
+** to be printed.
 ** It also fills the array with spaces or zeros depending on the given flags.
 **
 ** Arguments:
@@ -25,7 +26,7 @@
 **		(char *) 	str: string which contains a \0 and garbage value.
 */
 
-static char	*create_array_c(t_info *info)
+static char	*fill_spaces_c(t_info *info)
 {
 	int		len_str;
 	char	*str;
@@ -80,7 +81,7 @@ static void	exception_zero(unsigned char c, t_info *info)
 }
 
 /*
-** The c_convert function prints the c-conversion.
+** The convert_c function prints the c-conversion.
 ** It uses ft_putstr_fd and ft_putchar from libft.
 ** It also uses the above two function.
 **
@@ -93,7 +94,7 @@ static void	exception_zero(unsigned char c, t_info *info)
 ** 		(void) 		None.
 */
 
-void	c_convert(va_list ap, t_info *info)
+void		convert_c(va_list ap, t_info *info)
 {
 	unsigned char	c;
 	char			*str;
@@ -106,7 +107,7 @@ void	c_convert(va_list ap, t_info *info)
 		exception_zero(c, info);
 		return ;
 	}
-	str = create_array_c(info);
+	str = fill_spaces_c(info);
 	if (str == NULL)
 	{
 		info->err = 1;

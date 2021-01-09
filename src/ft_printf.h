@@ -15,6 +15,10 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 
+/*
+** This struct holds information about the conversion given as input.
+*/
+
 typedef struct		s_info
 {
 	int				dash;
@@ -35,8 +39,8 @@ int					ft_printf(const char *fmt, ...);
 
 /*
 ** These functions parse the information in the specifier and saves it in a
-** struct.
-** The exceptions function handles some exceptions.
+** struct. The function names itself are explanatory.
+** The set_excep function handles some exceptions.
 */
 
 int					set_info(const char *str_conv, t_info *info, va_list ap);
@@ -47,56 +51,24 @@ int					set_spec(const char *str_conv, t_info *info);
 void				set_excep(t_info *info);
 
 /*
-** The conversion function calls {d,i,u,x,X,s,c,p}_convert to print the values.
+** The convert function calls convert_{d,u,x,s,c,p} to print the values.
 */
 
-void				conversion(va_list ap, t_info *info);
+void				convert(va_list ap, t_info *info);
+void				convert_d(va_list ap, t_info *info);
+void				convert_u(va_list ap, t_info *info);
+void				convert_x(va_list ap, t_info *info);
+void				convert_c(va_list ap, t_info *info);
+void				convert_s(va_list ap, t_info *info);
+void				convert_p(va_list ap, t_info *info);
 
 /*
-** These functions handle the {d, i}-conversion.
+** These functions are utils which are used by the {d,u,x}_convert functions.
 */
 
-void				d_convert(va_list ap, t_info *info);
-char				*create_array(long nb, t_info *info, int len_nb);
+char				*fill_spaces(long nb, t_info *info, int len_nb);
 void				fill_zeros(char *str, t_info *info, long nb, int base);
-void				fill_nb(char *str, char *str_nb, t_info *info, long nb);
-void				put_minus(char *str, t_info *info, long nb);
-
-/*
-** These functions handle the u conversion.
-*/
-
-void				u_convert(va_list ap, t_info *info);
-
-/*
-** These functions handle the x-conversion.
-*/
-
-void				x_convert(va_list ap, t_info *info);
-//void				put_x(char *str_result, char *str_nb);
-
-/*
-** These functions handle the c-conversion.
-*/
-
-void				c_convert(va_list ap, t_info *info);
-//char				*create_array_c(t_info *info);
-//void				exception_zero(unsigned char c, t_info *info);
-
-/*
-** These functions handle the s-conversion
-*/
-
-void				s_convert(va_list ap, t_info *info);
-//char				*create_array_s(const char *str, t_info *info);
-//void				fill_str(char *str_malloc, const char *str, t_info *info);
-
-/*
-** These functions handle the p-conversion.
-*/
-
-void				p_convert(va_list ap, t_info *info);
-//char				*create_array_p(char *str_nb, t_info *info);
-//void				fill_addr(char *str, char *str_nb, t_info *info);
+void				fill_number(char *str, char *str_nb, t_info *info, long nb);
+void				fill_minus(char *str, t_info *info, long nb);
 
 #endif

@@ -29,7 +29,7 @@ static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
 			if (step == -1)
 				return (-1);
 			i += (step + 1);
-			conversion(ap, info);
+			convert(ap, info);
 			if (info->err == 1)
 				return (-1);
 			count += info->return_val;

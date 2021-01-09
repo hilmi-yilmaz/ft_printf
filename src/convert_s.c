@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** The create_array_s function allocates exactly enough memory for the string.
+** The fill_spaces_s function allocates exactly enough memory for the string.
 ** It also fills it with spaces using the ft_memset function from libft.
 **
 ** Arguments:
@@ -26,7 +26,7 @@
 **		(char *) 		str_malloc: string which is filled with spaces.
 */
 
-static char	*create_array_s(const char *str, t_info *info)
+static char	*fill_spaces_s(const char *str, t_info *info)
 {
 	int		len_str;
 	int		len_malloc;
@@ -83,7 +83,7 @@ static void	fill_str(char *str_malloc, const char *str, t_info *info)
 }
 
 /*
-** The s_convert function prints the s-conversion.
+** The convert_s function prints the s-conversion.
 ** It uses ft_strlen, ft_putstr_fd from libft.
 ** It also uses the above two functions.
 **
@@ -96,7 +96,7 @@ static void	fill_str(char *str_malloc, const char *str, t_info *info)
 ** 		(void) 		None.
 */
 
-void	s_convert(va_list ap, t_info *info)
+void		convert_s(va_list ap, t_info *info)
 {
 	const char	*str;
 	char		*str_malloc;
@@ -104,7 +104,7 @@ void	s_convert(va_list ap, t_info *info)
 	str = va_arg(ap, const char *);
 	if (str == NULL)
 		str = "(null)";
-	str_malloc = create_array_s(str, info);
+	str_malloc = fill_spaces_s(str, info);
 	if (str_malloc == NULL)
 	{
 		info->err = 1;
