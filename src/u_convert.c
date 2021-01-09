@@ -51,7 +51,6 @@ void	u_convert(va_list ap, t_info *info)
 	info->return_val = ft_strlen(str);
 	fill_zeros(str, info, nb, 10);
 	fill_nb(str, str_nb, info, nb);
-	put_minus(str, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str, ' ', ft_strlen(str));
 	ft_putstr_fd(str, 1);

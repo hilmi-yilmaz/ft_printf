@@ -14,6 +14,24 @@
 #include <stdlib.h>
 
 /*
+** The put_x function prints argument "str_result". It frees both str_result and str_nb.
+**
+** Arguments:
+**		(char *)	str_result: the string to print and free.
+**		(char *)	str_nb: the string to free.
+**
+** Returns:
+**		(void)		None.
+*/
+
+static void	put_x(char *str_result, char *str_nb)
+{
+	ft_putstr_fd(str_result, 1);
+	free(str_nb);
+	free(str_result);
+}
+
+/*
 ** The x_convert function prints the x-conversion.
 ** It uses ft_strlen, ft_itoa_hex, ft_putstr and ft_toupper_str from libft.
 ** It uses the same subfunctions as d_convert:
@@ -27,7 +45,7 @@
 **					information.
 **
 ** Returns:
-** 		(void) None.
+** 		(void)		None.
 */
 
 void	x_convert(va_list ap, t_info *info)
@@ -51,17 +69,9 @@ void	x_convert(va_list ap, t_info *info)
 	info->return_val = ft_strlen(str_result);
 	fill_zeros(str_result, info, nb, 16);
 	fill_nb(str_result, str_nb, info, nb);
-	put_minus(str_result, info, nb);
 	if (nb == 0 && info->prec == 0)
 		ft_memset(str_result, ' ', ft_strlen(str_result));
 	if (info->spec == 'X')
 		ft_toupper_str(str_result);
 	put_x(str_result, str_nb);
-}
-
-void	put_x(char *str_result, char *str_nb)
-{
-	ft_putstr_fd(str_result, 1);
-	free(str_nb);
-	free(str_result);
 }

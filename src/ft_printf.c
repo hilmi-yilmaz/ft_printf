@@ -13,42 +13,45 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-int		ft_printf(const char *fmt, ...)
+static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
 {
-	va_list	ap;
 	int		i;
 	int		step;
-	int		read_val;
 	int		count;
-	t_info	info;
 
-	if (fmt == NULL)
-		return (-1);
-	va_start(ap, fmt);
 	i = 0;
 	count = 0;
 	while (*(fmt + i) != '\0')
 	{
 		if (*(fmt + i) == '%')
 		{
-			step = set_info(fmt + i + 1, &info, ap);
+			step = set_info(fmt + i + 1, info, ap);
 			if (step == -1)
 				return (-1);
-			i += step;
-			conversion(ap, &info);
-			if (info.err == 1)
+			i += (step + 1);
+			conversion(ap, info);
+			if (info->err == 1)
 				return (-1);
-			count += info.return_val;
+			count += info->return_val;
+			continue ;
 		}
-		else
-		{
-			read_val = write(1, fmt + i, 1);
-			if (read_val == -1)
-				return (-1);
-			count++;
-		}
+		write(1, fmt + i, 1);
+		count++;
 		i++;
 	}
-	va_end(ap);
 	return (count);
+}
+
+int				ft_printf(const char *fmt, ...)
+{
+	va_list		ap;
+	t_info		info;
+	int			return_val;
+
+	if (fmt == NULL)
+		return (-1);
+	va_start(ap, fmt);
+	return_val = ft_iterate(fmt, ap, &info);
+	va_end(ap);
+	return (return_val);
 }

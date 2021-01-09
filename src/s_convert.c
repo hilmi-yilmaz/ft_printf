@@ -14,40 +14,6 @@
 #include <stdlib.h>
 
 /*
-** The s_convert function prints the s-conversion.
-** It uses ft_strlen, ft_putstr_fd from libft.
-** It also uses the below two functions.
-**
-** Arguments:
-**		(va_list)	ap: the argument list which contains the unnamed arguments.
-**		(t_info *)	info: pointer to struct which contains the conversion
-**					information.
-**
-** Returns:
-** 		(void) 		None.
-*/
-
-void	s_convert(va_list ap, t_info *info)
-{
-	const char	*str;
-	char		*str_malloc;
-
-	str = va_arg(ap, const char *);
-	if (str == NULL)
-		str = "(null)";
-	str_malloc = create_array_s(str, info);
-	if (str_malloc == NULL)
-	{
-		info->err = 1;
-		return ;
-	}
-	info->return_val = ft_strlen(str_malloc);
-	fill_str(str_malloc, str, info);
-	ft_putstr_fd(str_malloc, 1);
-	free(str_malloc);
-}
-
-/*
 ** The create_array_s function allocates exactly enough memory for the string.
 ** It also fills it with spaces using the ft_memset function from libft.
 **
@@ -60,7 +26,7 @@ void	s_convert(va_list ap, t_info *info)
 **		(char *) 		str_malloc: string which is filled with spaces.
 */
 
-char	*create_array_s(const char *str, t_info *info)
+static char	*create_array_s(const char *str, t_info *info)
 {
 	int		len_str;
 	int		len_malloc;
@@ -97,7 +63,7 @@ char	*create_array_s(const char *str, t_info *info)
 **		(void) 			None.
 */
 
-void	fill_str(char *str_malloc, const char *str, t_info *info)
+static void	fill_str(char *str_malloc, const char *str, t_info *info)
 {
 	int i;
 	int	len_str;
@@ -114,4 +80,38 @@ void	fill_str(char *str_malloc, const char *str, t_info *info)
 		ft_memmove(str_malloc + i, str, ft_strlen(str));
 	else
 		ft_memmove(str_malloc + i, str, len_str);
+}
+
+/*
+** The s_convert function prints the s-conversion.
+** It uses ft_strlen, ft_putstr_fd from libft.
+** It also uses the above two functions.
+**
+** Arguments:
+**		(va_list)	ap: the argument list which contains the unnamed arguments.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**
+** Returns:
+** 		(void) 		None.
+*/
+
+void	s_convert(va_list ap, t_info *info)
+{
+	const char	*str;
+	char		*str_malloc;
+
+	str = va_arg(ap, const char *);
+	if (str == NULL)
+		str = "(null)";
+	str_malloc = create_array_s(str, info);
+	if (str_malloc == NULL)
+	{
+		info->err = 1;
+		return ;
+	}
+	info->return_val = ft_strlen(str_malloc);
+	fill_str(str_malloc, str, info);
+	ft_putstr_fd(str_malloc, 1);
+	free(str_malloc);
 }

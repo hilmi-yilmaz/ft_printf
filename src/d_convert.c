@@ -57,11 +57,11 @@ void	d_convert(va_list ap, t_info *info)
 }
 
 /*
-** The create_array function allocates exactly enough memory for the string.
+** The create_array function allocates exactly enough memory for the string to be printed.
 ** It also fills it with spaces using the ft_memset function from libft.
 **
 ** Arguments:
-**		(int)		nb: the number to print.
+**		(long)		nb: the number to print.
 **		(t_info *)	info: pointer to struct which contains the conversion
 **					information.
 **		(int)		len_nb: the length of the number including '-' sign.
@@ -109,6 +109,7 @@ char	*create_array(long nb, t_info *info, int len_nb)
 **		(char *) 	str: the string to be filled with zeros.
 **		(t_info *)	info: pointer to struct which contains the conversion
 **					information.
+**		(long)		nb: the number to print.
 **		(int)		base: the base number to do the calculations
 **					with (base^power).
 **
@@ -151,7 +152,7 @@ void	fill_zeros(char *str, t_info *info, long nb, int base)
 **		(char *)	str_nb: the number in a string (result of ft_itoa).
 **		(t_info *)	info: pointer to struct which contains the conversion
 **					information.
-**		(int)		nb: the number to print.
+**		(long)		nb: the number to print.
 **
 ** Returns:
 **		(void) 		None.
@@ -179,6 +180,19 @@ void	fill_nb(char *str, char *str_nb, t_info *info, long nb)
 		j--;
 	}
 }
+
+/*
+** The put_minus function adds a minus if the number was negative.
+** 
+** Arguments:
+**		(char *)	str: the string number without the '-' sign.
+**		(t_info *)	info: pointer to struct which contains the conversion
+**					information.
+**		(long)		nb: the number to print.
+**
+** Returns:
+**		(void)		None.
+*/
 
 void	put_minus(char *str, t_info *info, long nb)
 {

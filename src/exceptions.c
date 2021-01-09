@@ -22,7 +22,7 @@
 **		(void)			None.
 */
 
-void	exceptions(t_info *info)
+void	set_excep(t_info *info)
 {
 	if (info->prec < -1)
 		info->prec = -1;

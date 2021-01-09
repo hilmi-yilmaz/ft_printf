@@ -56,7 +56,7 @@ int		set_info(const char *str_conv, t_info *info, va_list ap)
 	}
 	step += prec_return;
 	step += set_spec(str_conv + step, info);
-	exceptions(info);
+	set_excep(info);
 	return (step);
 }
 

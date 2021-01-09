@@ -12,7 +12,7 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 
 typedef struct		s_info
@@ -28,7 +28,7 @@ typedef struct		s_info
 }					t_info;
 
 /*
-** The ft_printf function itself.
+** The ft_printf function itself and its subfunctions.
 */
 
 int					ft_printf(const char *fmt, ...);
@@ -44,7 +44,7 @@ int					set_flags(const char *str_conv, t_info *info);
 int					set_width(const char *str_conv, t_info *info, va_list ap);
 int					set_prec(const char *str_conv, t_info *info, va_list ap);
 int					set_spec(const char *str_conv, t_info *info);
-void				exceptions(t_info *info);
+void				set_excep(t_info *info);
 
 /*
 ** The conversion function calls {d,i,u,x,X,s,c,p}_convert to print the values.
@@ -73,30 +73,30 @@ void				u_convert(va_list ap, t_info *info);
 */
 
 void				x_convert(va_list ap, t_info *info);
-void				put_x(char *str_result, char *str_nb);
+//void				put_x(char *str_result, char *str_nb);
 
 /*
 ** These functions handle the c-conversion.
 */
 
 void				c_convert(va_list ap, t_info *info);
-char				*create_array_c(t_info *info);
-void				exception_zero(unsigned char c, t_info *info);
+//char				*create_array_c(t_info *info);
+//void				exception_zero(unsigned char c, t_info *info);
 
 /*
 ** These functions handle the s-conversion
 */
 
 void				s_convert(va_list ap, t_info *info);
-char				*create_array_s(const char *str, t_info *info);
-void				fill_str(char *str_malloc, const char *str, t_info *info);
+//char				*create_array_s(const char *str, t_info *info);
+//void				fill_str(char *str_malloc, const char *str, t_info *info);
 
 /*
 ** These functions handle the p-conversion.
 */
 
 void				p_convert(va_list ap, t_info *info);
-char				*create_array_p(char *str_nb, t_info *info);
-void				fill_addr(char *str, char *str_nb, t_info *info);
+//char				*create_array_p(char *str_nb, t_info *info);
+//void				fill_addr(char *str, char *str_nb, t_info *info);
 
 #endif
