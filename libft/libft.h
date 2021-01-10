@@ -6,7 +6,7 @@
 /*   By: hyilmaz <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 17:07:34 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/09 22:52:01 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/01/10 17:57:15 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void				ft_toupper_str(char *str);
 char				*ft_ultoa_hex(unsigned long n);
 char				*ft_ltoa_dec(long n);
 int					ft_nblen(long nb, int base);
+int					ft_cmpstr(char *s1, char *s2);
 
 #endif
