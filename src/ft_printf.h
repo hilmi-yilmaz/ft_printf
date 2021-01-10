@@ -32,14 +32,14 @@ typedef struct		s_info
 }					t_info;
 
 /*
-** The ft_printf function itself and its subfunctions.
+** The ft_printf function itself.
 */
 
 int					ft_printf(const char *fmt, ...);
 
 /*
-** These functions parse the information in the specifier and saves it in a
-** struct. The function names itself are explanatory.
+** These functions parse the information in the specifier and saves it in the
+** above struct. The function names itself are explanatory.
 ** The set_excep function handles some exceptions.
 */
 

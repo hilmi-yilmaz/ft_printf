@@ -20,6 +20,7 @@
 ** - fill_spaces()
 ** - fill_zeros()
 ** - fill_number()
+** - fill_minus()
 **
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.

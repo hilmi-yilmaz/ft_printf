@@ -23,7 +23,7 @@
 **					information.
 **
 ** Returns:
-**		(char *) 	str: string which contains a \0 and garbage value.
+**		(char *) 	str: the allocated memory which is null terminated.
 */
 
 static char	*fill_spaces_c(t_info *info)

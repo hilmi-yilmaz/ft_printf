@@ -13,6 +13,22 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
+/*
+** The ft_iterate function is a helper function for ft_printf.
+** It loops the string 'fmt' and handles the conversion and prints the values.
+**
+** Arguments:
+**		(const char *)	fmt: the string with the conversion.
+**		(va_list)		ap: the argument list which contains the unnamed
+**						arguments.
+**		(t_info *)		info: pointer to struct which contains the conversion
+**						information.
+**
+** Returns:
+**		(int)			count: 	amount of printed characters.
+**								-1 in case of error.
+*/
+
 static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
 {
 	int		i;
@@ -41,6 +57,22 @@ static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
 	}
 	return (count);
 }
+
+/*
+** The ft_printf function mimics the C printf function.
+** It can handle the '0' and '-' flags.
+** It also handles field width and precision.
+** The above two can also be given as argument using '*'.
+** The following specifiers are implemented: d, i, u, x, X, s, c, p.
+**
+** Arguments:
+**		(const char *)	fmt: the string with the conversion.
+**		(any type)		unnamed parameters: variadic arguments.
+**
+** Returns:
+**		(int)			return_val: amount of printed characters.
+**									-1 in case of error.
+*/
 
 int				ft_printf(const char *fmt, ...)
 {

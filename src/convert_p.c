@@ -85,7 +85,7 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 /*
 ** The convert_p function prints the p-conversion.
 ** It uses the ft_strlen, ft_ultoa_hex and ft_putstr_fd.
-** It also uses the below two functions.
+** It also uses the above two functions.
 **
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.

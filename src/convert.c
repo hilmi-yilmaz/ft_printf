@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 /*
-** The conversion function chooses which conversion to perform.
+** The convert function chooses which conversion to perform.
 ** Arguments:
 **		(va_list)	ap: the argument list which contains the unnamed arguments.
 **		(t_info *)	info: pointer to struct which contains the conversion

@@ -13,7 +13,8 @@
 #include "../ft_printf.h"
 
 /*
-** The fill_minus function adds a minus if the number was negative.
+** The fill_minus function adds a minus if the number was negative
+** for {d,i}-conversion.
 **
 ** Arguments:
 **		(char *)	str: the string number without the '-' sign.

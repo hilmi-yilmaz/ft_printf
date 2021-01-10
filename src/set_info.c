@@ -17,7 +17,7 @@
 ** The set_info function sets the information for the conversions.
 ** It starts by giving default values.
 ** prec = -1 means no precision given.
-** It also handles some exceptions, see exceptions.c.
+** It also handles some exceptions, see set_excep.c.
 **
 ** Arguments:
 **		(const char *)	str_conv: the start of the conversion string.
