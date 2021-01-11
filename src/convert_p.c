@@ -80,14 +80,12 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 	*(str + i) = '0';
 	*(str + i + 1) = 'x';
 	i = i + 2;
-	while (*(str_nb + j) != '\0' && ft_cmpstr(str_nb, "0") != 1)
+	while (*(str_nb + j) != '\0')
 	{
-		if (info->prec == 0)
-		{
+		if (!(ft_cmpstr(str_nb, "0") == 1 && info->prec == 0))
 			*(str + i) = *(str_nb + j);
-			i++;
-			j++;
-		}
+		i++;
+		j++;
 	}
 }
 
