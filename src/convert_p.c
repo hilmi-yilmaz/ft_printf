@@ -75,6 +75,8 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 	len_str = ft_strlen(str);
 	if (info->dash == 0)
 		i = len_str - (int)ft_strlen(str_nb) - 2;
+	if (info->dash == 0 && ft_cmpstr(str_nb, "0") == 1 && info->prec == 0)
+		i++;
 	if (i < 0)
 		i = 0;
 	*(str + i) = '0';
