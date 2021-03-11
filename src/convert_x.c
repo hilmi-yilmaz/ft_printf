@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   x_convert.c                                        :+:    :+:            */
+/*   convert_x.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/25 20:08:17 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 17:38:21 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:18:07 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	put_x(char *str_result, char *str_nb)
 ** 		(void)		None.
 */
 
-void		convert_x(va_list ap, t_info *info)
+void	convert_x(va_list ap, t_info *info)
 {
 	unsigned int	nb;
 	int				len_nb;

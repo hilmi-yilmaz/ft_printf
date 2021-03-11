@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:14:29 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/06 15:07:36 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:18:58 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** This struct holds information about the conversion given as input.
 */
 
-typedef struct		s_info
+typedef struct s_info
 {
 	int				dash;
 	int				zero;

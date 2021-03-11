@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   s_convert.c                                        :+:    :+:            */
+/*   convert_s.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 21:27:22 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/06 15:07:33 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:17:55 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	*fill_spaces_s(const char *str, t_info *info)
 
 static void	fill_str(char *str_malloc, const char *str, t_info *info)
 {
-	int i;
+	int	i;
 	int	len_str;
 
 	i = 0;
@@ -96,7 +96,7 @@ static void	fill_str(char *str_malloc, const char *str, t_info *info)
 ** 		(void) 		None.
 */
 
-void		convert_s(va_list ap, t_info *info)
+void	convert_s(va_list ap, t_info *info)
 {
 	const char	*str;
 	char		*str_malloc;

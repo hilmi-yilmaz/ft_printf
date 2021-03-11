@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/09 18:20:46 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/09 18:20:48 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:20:09 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 
 void	fill_zeros(char *str, t_info *info, long nb, int base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	prec;
 
 	prec = info->prec;

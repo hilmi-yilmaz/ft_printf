@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/09 18:20:25 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/09 18:20:27 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:19:52 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 void	fill_minus(char *str, t_info *info, long nb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_isdigit(*(str + i)) == 0 && nb < 0 && info->dash == 0)

@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/19 10:32:28 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 13:26:47 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:19:36 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 **						If memory allocation fails, returns -1.
 */
 
-int		set_info(const char *str_conv, t_info *info, va_list ap)
+int	set_info(const char *str_conv, t_info *info, va_list ap)
 {
 	int	step;
 	int	prec_return;
@@ -72,9 +72,9 @@ int		set_info(const char *str_conv, t_info *info, va_list ap)
 **		(int) 			i: the steps taken
 */
 
-int		set_flags(const char *str_conv, t_info *info)
+int	set_flags(const char *str_conv, t_info *info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*(str_conv + i) == '-' || *(str_conv + i) == '0')
@@ -105,7 +105,7 @@ int		set_flags(const char *str_conv, t_info *info)
 **				If memory allocation fails, return -1.
 */
 
-int		set_width(const char *str_conv, t_info *info, va_list ap)
+int	set_width(const char *str_conv, t_info *info, va_list ap)
 {
 	int		i;
 	char	*width;
@@ -146,7 +146,7 @@ int		set_width(const char *str_conv, t_info *info, va_list ap)
 **						If no precision specified, return 0.
 */
 
-int		set_prec(const char *str_conv, t_info *info, va_list ap)
+int	set_prec(const char *str_conv, t_info *info, va_list ap)
 {
 	int		i;
 	int		j;
@@ -187,7 +187,7 @@ int		set_prec(const char *str_conv, t_info *info, va_list ap)
 **		(int) 			1 (step), because it expects only 1 specifier.
 */
 
-int		set_spec(const char *str_conv, t_info *info)
+int	set_spec(const char *str_conv, t_info *info)
 {
 	info->spec = *(str_conv + 0);
 	return (1);

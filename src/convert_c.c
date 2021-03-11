@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   c_convert.c                                        :+:    :+:            */
+/*   convert_c.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 18:36:16 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/05 19:01:36 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:17:08 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void	exception_zero(unsigned char c, t_info *info)
 ** 		(void) 		None.
 */
 
-void		convert_c(va_list ap, t_info *info)
+void	convert_c(va_list ap, t_info *info)
 {
 	unsigned char	c;
 	char			*str;

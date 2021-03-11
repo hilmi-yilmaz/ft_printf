@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   p_convert.c                                        :+:    :+:            */
+/*   convert_p.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/26 18:41:39 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 13:50:04 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:17:36 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static char	*fill_spaces_p(char *str_nb, t_info *info)
 
 static void	fill_addr(char *str, char *str_nb, t_info *info)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	len_str;
 
 	i = 0;
@@ -105,7 +105,7 @@ static void	fill_addr(char *str, char *str_nb, t_info *info)
 ** 		(void) 		None.
 */
 
-void		convert_p(va_list ap, t_info *info)
+void	convert_p(va_list ap, t_info *info)
 {
 	unsigned long	addr;
 	char			*str_nb;

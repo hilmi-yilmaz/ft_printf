@@ -6,7 +6,7 @@
 #    By: hyilmaz <hyilmaz@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/19 10:51:42 by hyilmaz       #+#    #+#                  #
-#    Updated: 2021/01/09 15:03:16 by hyilmaz       ########   odam.nl          #
+#    Updated: 2021/03/11 21:55:51 by hyilmaz       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ $(NAME): $(LIBFT) $(SRC_OBJ) $(UTILS_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	make bonus -C libft
+	make -C libft
 
 clean:
 	make fclean -C libft

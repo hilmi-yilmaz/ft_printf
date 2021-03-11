@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/18 14:35:20 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2020/12/27 15:42:04 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:18:42 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 **								-1 in case of error.
 */
 
-static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
+static int	ft_iterate(const char *fmt, va_list ap, t_info *info)
 {
 	int		i;
 	int		step;
@@ -74,7 +74,7 @@ static int		ft_iterate(const char *fmt, va_list ap, t_info *info)
 **									-1 in case of error.
 */
 
-int				ft_printf(const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
 	t_info		info;

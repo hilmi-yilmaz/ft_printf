@@ -6,7 +6,7 @@
 /*   By: hyilmaz <hyilmaz@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/09 18:20:32 by hyilmaz       #+#    #+#                 */
-/*   Updated: 2021/01/09 18:20:33 by hyilmaz       ########   odam.nl         */
+/*   Updated: 2021/03/11 09:20:00 by hyilmaz       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 
 void	fill_number(char *str, char *str_nb, t_info *info, long nb)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (nb < 0 && info->dash == 1)
 		*(str + 0) = '-';
